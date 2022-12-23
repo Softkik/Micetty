@@ -7,7 +7,6 @@
   "main": "build/electron/main.js",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/electron-devtools-installer": "^2.2.2",
@@ -60,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "concurrently": "^7.5.0",
     "cross-env": "^7.0.3",
     "electron": "^21.2.3",
