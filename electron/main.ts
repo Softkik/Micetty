@@ -6,11 +6,14 @@ import installExtension, {
 
 function createWindow() {
   const win = new BrowserWindow({
-    titleBarStyle: "hiddenInset",
+    titleBarStyle: "hidden",
+    autoHideMenuBar: true,
     width: 800,
     height: 600,
+    minHeight: 440,
+    minWidth: 720,
     webPreferences: {
-      nodeIntegration: true, // <--- flag
+      nodeIntegration: true,
       // contextIsolation: false,
       preload: path.join(__dirname, "preload.js"),
     },
