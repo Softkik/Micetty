@@ -9,7 +9,7 @@ export default function Button_Sidebar(
 ) {
   return (
     <div className={props.className} id={props.id} onClick={props.clickHandle}>
-      <span>{props.children}</span>
+      {props.children}
     </div>
   );
 }

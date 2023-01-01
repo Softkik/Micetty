@@ -1,8 +1,9 @@
 :root {
   --back-base: #15173a;
-  --back-sides: #1b1d45;
+  --back-sides: #1d204c;
   --logo-color: #dddddd;
   --side-but-text-color: #9295c4;
+  --side-but-text-sel-color: #dddddd;
   --side-but-hover-color: #15173a;
 }
 
@@ -10,9 +11,11 @@ body {
   background-color: var(--back-base, #15173a);
   height: 100vh;
 }
+
 body #root {
   height: 100vh;
 }
+
 body #root .App {
   height: 100vh;
   display: flex;
@@ -37,20 +40,26 @@ body #root .App {
   height: 1.5rem;
   width: 100%;
   flex: 0 1 1.5rem;
-  background-color: var(--back-sides, #1b1d45);
+  background-color: var(--back-sides, #1d204c);
   -webkit-app-region: drag;
 }
 
 .Logo-Section .Logo-Image {
   width: 2.5rem;
+  margin-left: 0.4rem;
   aspect-ratio: 1;
 }
+
 .Logo-Section .Logo-Name {
   font-family: "Radio-Stars";
   font-size: 1.2rem;
-  margin-left: 1rem;
+  width: 100%;
+  margin-left: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
   color: var(--logo-color, #dddddd);
 }
+
 .Logo-Section .Logo-Name-Tooltip {
   font-family: "Radio-Stars";
   font-size: 1rem;
@@ -62,55 +71,118 @@ body #root .App {
   display: flex;
   flex-direction: row;
   flex: 1 1 auto;
+  overflow: hidden;
 }
-.main-app .sidebar {
-  width: 12rem;
-  background-color: var(--back-sides, #1b1d45);
+
+.main-app .sidebar-ma {
+  width: 13rem;
+  max-height: 100%;
+  background-color: var(--back-sides, #1d204c);
+  transition: 0.25s ease-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
+.main-app .sidebar-ma .sidebar {
+  overflow: scroll;
+}
+
+.main-app .sidebar-ma .sidebar::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
 .main-app .ContentBlock {
   flex: 1 1 auto;
 }
 
 .btn.btn-sidebar {
   margin: 0.5rem 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
   color: var(--side-but-text-color, #5c5fa0);
   display: flex;
   flex-direction: row;
-  align-items: center;
   cursor: pointer;
+  font-size: 16px;
 }
-.btn.btn-sidebar span.sidebar-text {
+
+.btn.btn.btn-sidebar.active {
+  color: var(--side-but-text-sel-color, #dddddd);
+  background-color: var(--back-base, #15173a);
+}
+
+.btn.btn.btn-sidebar.sidebar-console.active {
+  color: var(--side-but-text-sel-color, #dddddd);
+  background-color: var(--back-base, #15173a);
+  margin-right: 0rem;
+  padding-right: 1.8rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+}
+
+.btn.btn.btn-sidebar.sidebar-console.active::after,
+.btn.btn.btn-sidebar.sidebar-console.active::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 0px;
+}
+
+.btn.btn.btn-sidebar.sidebar-console.active::after {
+  top: -10px;
+  background: radial-gradient(circle at top left,
+      var(--back-sides, #1d204c) 10px,
+      var(--back-base, #15173a) 11px);
+}
+
+.btn.btn.btn-sidebar.sidebar-console.active::before {
+  bottom: -10px;
+  background: radial-gradient(circle at bottom left,
+      var(--back-sides, #1d204c) 10px,
+      var(--back-base, #15173a) 11px);
+}
+
+.btn.btn-sidebar div.sidebar-text {
   margin-left: 0.5rem;
+  font-size: 14px;
+  width: 100%;
+  line-height: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
+.btn.btn-sidebar.sidebar-console div.sidebar-text {
+  margin-left: 0.5rem;
+  font-size: 14px;
+  line-height: 1rem;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn.btn-sidebar .sidebar-icon {
+  aspect-ratio: 1;
+  font-size: 16px;
+}
+
 .btn.btn-sidebar:hover {
   background-color: var(--side-but-hover-color, #15173a);
 }
+
 .sidebar-tooltip {
   display: none;
 }
 
 @media screen and (max-width: 820px) {
-  .btn.btn-sidebar span.sidebar-text {
-    display: none;
-  }
-  .btn.btn-sidebar {
-    justify-content: center;
+  .main-app .sidebar-ma {
+    width: 4.5rem;
+    background-color: var(--back-sides, #1d204c);
   }
 
-  .Logo-Section .Logo-Name {
-    display: none;
-  }
-  .Logo-Section {
-    padding: 0.5rem;
-    justify-content: center;
-  }
-
-  .main-app .sidebar {
-    width: 4rem;
-    background-color: var(--back-sides, #1b1d45);
-  }
   .sidebar-tooltip {
     display: block;
     padding: 8px !important;

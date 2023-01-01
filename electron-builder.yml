@@ -1,0 +1,60 @@
+appId: "com.Softkik.Micetty"
+productName: "Micetty"
+directories:
+  buildResources: assets
+win:
+  icon: ./src/images/Micetty_Icon.png
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - arm64
+    - target: portable
+      arch:
+        - x64
+        - arm64
+    - target: msi
+      arch:
+        - x64
+        - arm64
+linux:
+  icon: ./src/images/Micetty_Icon.png
+  target:
+    - target: AppImage
+      arch:
+        - x64
+        - arm64
+    - target: flatpak
+      arch:
+        - x64
+        - arm64
+    - target: snap
+      arch:
+        - x64
+        - arm64
+    - target: deb
+      arch:
+        - x64
+        - arm64
+    - target: rpm
+      arch:
+        - x64
+        - arm64
+    - target: pacman
+      arch:
+        - x64
+        - arm64
+mac:
+  icon: ./src/images/Micetty_Icon.png
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: pkg
+      arch:
+        - x64
+        - arm64
+extends: null
+files:
+  - "build/**/*"

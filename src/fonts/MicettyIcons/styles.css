@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "micetty";
+  src: url("fonts/micetty.eot");
+  src: url("fonts/micetty.eot?#iefix") format("embedded-opentype"),
+    url("fonts/micetty.woff") format("woff"),
+    url("fonts/micetty.ttf") format("truetype"),
+    url("fonts/micetty.svg#micetty") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "micetty" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="mtty-"]:before,
+[class*=" mtty-"]:before {
+  font-family: "micetty" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mtty-folder:before {
+  content: "\61";
+}
+.mtty-tasks:before {
+  content: "\62";
+}
+.mtty-network:before {
+  content: "\63";
+}
+.mtty-file-code:before {
+  content: "\64";
+}
+.mtty-terminal:before {
+  content: "\65";
+}
+.mtty-clock:before {
+  content: "\66";
+}
+.mtty-search:before {
+  content: "\67";
+}
+.mtty-settings:before {
+  content: "\68";
+}
+.mtty-up:before {
+  content: "\69";
+}
+.mtty-right:before {
+  content: "\6a";
+}
+.mtty-down:before {
+  content: "\6b";
+}
+.mtty-left:before {
+  content: "\6c";
+}
+.mtty-cross-mark:before {
+  content: "\6d";
+}
